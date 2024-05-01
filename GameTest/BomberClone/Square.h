@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PrimitiveShape.h"
+#include "BomberClone\PrimitiveShape.h"
 #include "BomberClone\DrawUtils.h"
 #include "RenderableItems.h"
 class Square : public PrimitiveShape

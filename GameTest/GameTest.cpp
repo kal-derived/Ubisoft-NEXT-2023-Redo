@@ -8,11 +8,11 @@
 //------------------------------------------------------------------------
 #include "app\app.h"
 //------------------------------------------------------------------------
-#include "ControllerInfo.h"
-#include "PrimitiveShape.h"
-#include "Triangle.h"
-#include "Square.h"
-#include "BomberClone/Player.h"
+#include "BomberClone\ControllerInfo.h"
+#include "BomberClone\PrimitiveShape.h"
+#include "BomberClone\Triangle.h"
+#include "BomberClone\Square.h"
+#include "BomberClone\Player.h"
 //------------------------------------------------------------------------
 // Example data....
 //------------------------------------------------------------------------

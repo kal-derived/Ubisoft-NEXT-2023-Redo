@@ -1,5 +1,5 @@
 #pragma once
-#include "PrimitiveShape.h"
+#include "BomberClone\PrimitiveShape.h"
 #include "BomberClone\DrawUtils.h"
 #include "RenderableItems.h"
 class Triangle : public PrimitiveShape
