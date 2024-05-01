@@ -188,6 +188,7 @@
     <ClInclude Include="BomberClone\DrawUtils.h" />
     <ClInclude Include="BomberClone\Player.h" />
     <ClInclude Include="BomberClone\PrimitiveShape.h" />
+    <ClInclude Include="BomberClone\Pentagon.h" />
     <ClInclude Include="BomberClone\RenderableItems.h" />
     <ClInclude Include="BomberClone\Square.h" />
     <ClInclude Include="BomberClone\Triangle.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />
     <ClCompile Include="BomberClone\PrimitiveShape.cpp" />
+    <ClCompile Include="BomberClone\Pentagon.cpp" />
     <ClCompile Include="BomberClone\RenderableItems.cpp" />
     <ClCompile Include="BomberClone\Square.cpp" />
     <ClCompile Include="BomberClone\Triangle.cpp" />

@@ -12,6 +12,7 @@
 #include "BomberClone\PrimitiveShape.h"
 #include "BomberClone\Triangle.h"
 #include "BomberClone\Square.h"
+#include "BomberClone\Pentagon.h"
 #include "BomberClone\Player.h"
 //------------------------------------------------------------------------
 // Example data....
@@ -22,6 +23,7 @@ ControllerInfo padInfo;
 Triangle* primshape;
 Square* sq;
 Player* player;
+Pentagon* penta;
 
 enum
 {
@@ -55,6 +57,7 @@ void Init()
 
 	//primshape = new Triangle({500,400}, 100);
 	//sq = new Square({200, 300}, 30);
+	penta = new Pentagon();
 	player = new Player();
 }
 
@@ -161,6 +164,7 @@ void Update(float deltaTime)
 void Render()
 {	
 	RenderableItems::RenderAll();
+
 	//primshape.Render();
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
