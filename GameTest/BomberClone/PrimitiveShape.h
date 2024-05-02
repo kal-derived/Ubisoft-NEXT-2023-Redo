@@ -13,12 +13,13 @@ public:
 	void Render();
 	void SetCenter(Position newPosition);
 	Position GetCenter();
+	std::vector<Vertex*> GetVerts();
 
 protected:
 	virtual void CreateShape();
 	//void Register(PrimitiveShape* self);
 	Position center;
-	std::vector<Vertex> vertices;
+	std::vector<Vertex*> vertices;
 	Color color;
 
 

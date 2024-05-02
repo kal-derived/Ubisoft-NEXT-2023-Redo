@@ -37,9 +37,9 @@ Triangle::~Triangle()
 void Triangle::CreateTriangle(float height)
 {
 	//PrimitiveShape::Register(this);
-	vertices.push_back(Vertex(center.x, center.y + height / 2));
-	vertices.push_back(Vertex(center.x + (height / 0.866f) / 2, center.y - height / 2)); //0.866 is an approximation of sqrt(3)/2 - The constant that gives the length of equilateral triangle side when dividing height
-	vertices.push_back(Vertex(center.x - (height / 0.866f) / 2, center.y - height / 2));
+	vertices.push_back(new Vertex(center.x, center.y + height / 2));
+	vertices.push_back(new Vertex(center.x + (height / 0.866f) / 2, center.y - height / 2)); //0.866 is an approximation of sqrt(3)/2 - The constant that gives the length of equilateral triangle side when dividing height
+	vertices.push_back(new Vertex(center.x - (height / 0.866f) / 2, center.y - height / 2));
 	RenderableItems::RegisterPrimitive(this);
 	OutputDebugString(L"Registered a triangle.");
 	OutputDebugString(std::to_wstring(vertices.size()).c_str());

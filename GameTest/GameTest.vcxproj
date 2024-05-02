@@ -119,12 +119,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>"$(ProjectDir)"</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>dxguid.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)\GameTest\glut\bin\x64\*.dll" "$(OutputPath)" /Y</Command>
@@ -184,6 +186,7 @@
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
     <ClInclude Include="App\TextureLoader.h" />
+    <ClInclude Include="BomberClone\BoundingBox.h" />
     <ClInclude Include="BomberClone\ControllerInfo.h" />
     <ClInclude Include="BomberClone\DrawUtils.h" />
     <ClInclude Include="BomberClone\Player.h" />
@@ -202,6 +205,7 @@
     <ClCompile Include="App\SimpleSound.cpp" />
     <ClCompile Include="App\SimpleSprite.cpp" />
     <ClCompile Include="App\TextureLoader.cpp" />
+    <ClCompile Include="BomberClone\BoundingBox.cpp" />
     <ClCompile Include="BomberClone\ControllerInfo.cpp" />
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />

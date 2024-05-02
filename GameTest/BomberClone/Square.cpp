@@ -38,10 +38,10 @@ Square::~Square()
 void Square::CreateSquare(float radius)
 {
 	//PrimitiveShape::Register(this);
-	vertices.push_back(Vertex(center.x - radius, center.y + radius)); // Top-Left corner
-	vertices.push_back(Vertex(center.x + radius, center.y + radius));// Top-Right Corner
-	vertices.push_back(Vertex(center.x + radius, center.y - radius));// Bottom-Right Corner
-	vertices.push_back(Vertex(center.x - radius, center.y - radius));// Bottom-Left Corner
+	vertices.push_back(new Vertex(center.x - radius, center.y + radius)); // Top-Left corner
+	vertices.push_back(new Vertex(center.x + radius, center.y + radius));// Top-Right Corner
+	vertices.push_back(new Vertex(center.x + radius, center.y - radius));// Bottom-Right Corner
+	vertices.push_back(new Vertex(center.x - radius, center.y - radius));// Bottom-Left Corner
 	RenderableItems::RegisterPrimitive(this);
 	OutputDebugString(L"Registered a square.");
 	OutputDebugString(std::to_wstring(vertices.size()).c_str());

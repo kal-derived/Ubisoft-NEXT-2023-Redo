@@ -34,11 +34,11 @@ void Pentagon::CreatePentagon(float size)
 	Position mid = {size * cos(32), size * sin(32)/2.3f};	//Pythagorean triangle from center to 2nd tier of vertices
 	Position bottom = {size * cos(62)/1.2f, size * sin(62)};	//Triangle from center to 3rd tier of vertices
 
-	vertices.push_back(Vertex(center.x, center.y + size / (2 * 0.587f) )); // Top vert - constant replaces sin(180/5)
-	vertices.push_back(Vertex(center.x + mid.x, center.y + mid.y));	// Mid-right vert
-	vertices.push_back(Vertex(center.x + bottom.x, center.y + bottom.y));	// Bottom-right vert
-	vertices.push_back(Vertex(center.x - bottom.x, center.y + bottom.y));	// Bottom-left vert
-	vertices.push_back(Vertex(center.x - mid.x, center.y + mid.y));	// Mid-left vert
+	vertices.push_back(new Vertex(center.x, center.y + size / (2 * 0.587f) )); // Top vert - constant replaces sin(180/5)
+	vertices.push_back(new Vertex(center.x + mid.x, center.y + mid.y));	// Mid-right vert
+	vertices.push_back(new Vertex(center.x + bottom.x, center.y + bottom.y));	// Bottom-right vert
+	vertices.push_back(new Vertex(center.x - bottom.x, center.y + bottom.y));	// Bottom-left vert
+	vertices.push_back(new Vertex(center.x - mid.x, center.y + mid.y));	// Mid-left vert
 
 	RenderableItems::RegisterPrimitive(this);
 }

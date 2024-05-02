@@ -3,6 +3,10 @@
 
 PrimitiveShape::~PrimitiveShape()
 {
+	for each (Vertex* v in vertices)
+	{
+		delete v;
+	}
 }
 
 PrimitiveShape::PrimitiveShape()
@@ -33,9 +37,9 @@ void PrimitiveShape::CreateShape()
 
 void PrimitiveShape::CreateDebugShape()
 {
-	vertices.push_back(Vertex(center.x, center.y + 50));
-	vertices.push_back(Vertex(center.x + 28, center.y)); // Length of a triangle side is height / (sqrt(3)/2) - drawing from the middle gives half of that
-	vertices.push_back(Vertex(center.x - 28, center.y));
+	vertices.push_back(new Vertex(center.x, center.y + 50));
+	vertices.push_back(new Vertex(center.x + 28, center.y)); // Length of a triangle side is height / (sqrt(3)/2) - drawing from the middle gives half of that
+	vertices.push_back(new Vertex(center.x - 28, center.y));
 }
 
 
@@ -47,8 +51,8 @@ void PrimitiveShape::Render()
 	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (start.x == -1 && end.x == -1) {
-			start = vertices.at(i).vertPos;
-			end = vertices.at(i+1).vertPos;
+			start = vertices[i]->vertPos;
+			end = vertices[i + 1]->vertPos;
 		}
 
 
@@ -57,11 +61,11 @@ void PrimitiveShape::Render()
 			App::DrawLine(start.x, start.y, end.x, end.y, 1, 0, 0);
 			if (i == vertices.size() - 1)
 			{
-				App::DrawLine(end.x, end.y, vertices.at(0).vertPos.x, vertices.at(0).vertPos.y, 0, 1, 0);
+				App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, 0, 1, 0);
 			}
 			else {
-				start = vertices.at(i).vertPos;
-				end = vertices.at(i + 1).vertPos;
+				start = vertices[i]->vertPos;
+				end = vertices[i+1]->vertPos;
 			}
 			
 		}
@@ -79,6 +83,11 @@ Position PrimitiveShape::GetCenter()
 	return center;
 }
 
+std::vector<Vertex*> PrimitiveShape::GetVerts()
+{
+	return vertices;
+}
+
 
 void PrimitiveShape::UpdateVertPositions(Position newPosition)
 {
@@ -86,9 +95,9 @@ void PrimitiveShape::UpdateVertPositions(Position newPosition)
 	for (int i = 0; i < vertices.size(); i++)
 	{
 
-			vertices[i].vertPos.x += deltaPosition.x;
+			vertices[i]->vertPos.x += deltaPosition.x;
 
-			vertices[i].vertPos.y += deltaPosition.y;
+			vertices[i]->vertPos.y += deltaPosition.y;
 		
 
 	}

@@ -14,6 +14,7 @@
 #include "BomberClone\Square.h"
 #include "BomberClone\Pentagon.h"
 #include "BomberClone\Player.h"
+#include "BomberClone/BoundingBox.h"
 //------------------------------------------------------------------------
 // Example data....
 //------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Triangle* primshape;
 Square* sq;
 Player* player;
 Pentagon* penta;
+BoundingBox* box;
 
 enum
 {
@@ -59,6 +61,7 @@ void Init()
 	//sq = new Square({200, 300}, 30);
 	penta = new Pentagon();
 	player = new Player();
+	box = new BoundingBox((PrimitiveShape*)penta);
 }
 
 //------------------------------------------------------------------------
@@ -164,8 +167,8 @@ void Update(float deltaTime)
 void Render()
 {	
 	RenderableItems::RenderAll();
-
-	//primshape.Render();
+	box->RenderDebug();
+	//primshape->Render();
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	testSprite->Draw();

@@ -1,7 +1,8 @@
 #pragma once
 #include "ControllerInfo.h"
 #include "Square.h"
-#include "Triangle.h";
+#include "Triangle.h"
+
 class Player
 {
 public:
