@@ -5,11 +5,13 @@ Player::Player()
 {
 	playerPosition = { APP_INIT_WINDOW_WIDTH / 2, APP_INIT_WINDOW_HEIGHT / 2 };
 	playerBody = new Square({ playerPosition.x, playerPosition.y }, 20);
+	collider = new BoundingBox(playerBody);
 }
 
 Player::~Player()
 {
 	delete playerBody;
+	delete collider;
 }
 
 void Player::Update()
@@ -19,10 +21,21 @@ void Player::Update()
 	Action1();
 }
 
+BoundingBox* Player::GetCollider()
+{
+	return collider;
+}
+
+Square* Player::GetBody()
+{
+	return playerBody;
+}
+
 void Player::UpdatePosition(/*Position newPosition*/)
 {
 	//playerPosition = newPosition;
 	playerBody->SetCenter(playerPosition);
+	collider->SetPosition(playerPosition);
 }
 
 

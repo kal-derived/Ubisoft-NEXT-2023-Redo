@@ -2,6 +2,7 @@
 #include "ControllerInfo.h"
 #include "Square.h"
 #include "Triangle.h"
+#include "BoundingBox.h"
 
 class Player
 {
@@ -10,6 +11,9 @@ public:
 	~Player();
 
 	void Update();
+
+	BoundingBox* GetCollider();
+	Square* GetBody();
 
 private:
 	void Move();
@@ -20,6 +24,7 @@ private:
 	float moveSpeed = 4;
 	Position playerPosition;
 	Square* playerBody;
+	BoundingBox* collider;
 
 	ControllerInfo controlRef;
 };

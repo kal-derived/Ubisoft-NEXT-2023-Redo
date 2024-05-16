@@ -187,8 +187,10 @@
     <ClInclude Include="App\SimpleSprite.h" />
     <ClInclude Include="App\TextureLoader.h" />
     <ClInclude Include="BomberClone\BoundingBox.h" />
+    <ClInclude Include="BomberClone\Collision.h" />
     <ClInclude Include="BomberClone\ControllerInfo.h" />
     <ClInclude Include="BomberClone\DrawUtils.h" />
+    <ClInclude Include="BomberClone\GameLoop.h" />
     <ClInclude Include="BomberClone\Player.h" />
     <ClInclude Include="BomberClone\PrimitiveShape.h" />
     <ClInclude Include="BomberClone\Pentagon.h" />
@@ -206,8 +208,10 @@
     <ClCompile Include="App\SimpleSprite.cpp" />
     <ClCompile Include="App\TextureLoader.cpp" />
     <ClCompile Include="BomberClone\BoundingBox.cpp" />
+    <ClCompile Include="BomberClone\Collision.cpp" />
     <ClCompile Include="BomberClone\ControllerInfo.cpp" />
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
+    <ClCompile Include="BomberClone\GameLoop.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />
     <ClCompile Include="BomberClone\PrimitiveShape.cpp" />
     <ClCompile Include="BomberClone\Pentagon.cpp" />

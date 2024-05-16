@@ -45,29 +45,33 @@ void PrimitiveShape::CreateDebugShape()
 
 void PrimitiveShape::Render()
 {
-	Position start = {-1, -1};
-	Position end = {-1, -1};
-
-	for (int i = 0; i < vertices.size(); i++)
+	if (renderMode)
 	{
-		if (start.x == -1 && end.x == -1) {
-			start = vertices[i]->vertPos;
-			end = vertices[i + 1]->vertPos;
-		}
 
+		Position start = {-1, -1};
+		Position end = {-1, -1};
 
-		if(start.x > -1 && end.x > -1) {
-
-			App::DrawLine(start.x, start.y, end.x, end.y, 1, 0, 0);
-			if (i == vertices.size() - 1)
-			{
-				App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, 0, 1, 0);
-			}
-			else {
+		for (int i = 0; i < vertices.size(); i++)
+		{
+			if (start.x == -1 && end.x == -1) {
 				start = vertices[i]->vertPos;
-				end = vertices[i+1]->vertPos;
+				end = vertices[i + 1]->vertPos;
 			}
+
+
+			if(start.x > -1 && end.x > -1) {
+
+				App::DrawLine(start.x, start.y, end.x, end.y, color.r, color.g, color.b);
+				if (i == vertices.size() - 1)
+				{
+					App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, 0, 1, 0);
+				}
+				else {
+					start = vertices[i]->vertPos;
+					end = vertices[i+1]->vertPos;
+				}
 			
+			}
 		}
 	}
 }
@@ -86,6 +90,13 @@ Position PrimitiveShape::GetCenter()
 std::vector<Vertex*> PrimitiveShape::GetVerts()
 {
 	return vertices;
+}
+
+void PrimitiveShape::SetColor(float r, float g, float b)
+{
+	color.r = r;
+	color.g = g;
+	color.b = b;
 }
 
 

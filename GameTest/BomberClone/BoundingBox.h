@@ -16,7 +16,8 @@ public:
 
 	void SetPosition(Position newPosition);
 	void RenderDebug();
-
+	Position center;
+	Position extents;
 
 private:
 	void CreateBox();
@@ -24,8 +25,7 @@ private:
 	Vertex* FindFurthestVertInDirection(bool isVert, bool isGreaterThan);
 
 	PrimitiveShape* shape;
-	Position center;
-	Position extents;
+
 	
 
 };

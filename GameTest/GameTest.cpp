@@ -9,23 +9,16 @@
 #include "app\app.h"
 //------------------------------------------------------------------------
 #include "BomberClone\ControllerInfo.h"
-#include "BomberClone\PrimitiveShape.h"
-#include "BomberClone\Triangle.h"
-#include "BomberClone\Square.h"
-#include "BomberClone\Pentagon.h"
-#include "BomberClone\Player.h"
-#include "BomberClone/BoundingBox.h"
+#include "BomberClone/GameLoop.h"
+
 //------------------------------------------------------------------------
 // Example data....
 //------------------------------------------------------------------------
 CSimpleSprite *testSprite;
 // ===== This is *my* example data =====
 ControllerInfo padInfo;
-Triangle* primshape;
-Square* sq;
-Player* player;
-Pentagon* penta;
-BoundingBox* box;
+GameLoop* gameloop;
+
 
 enum
 {
@@ -56,12 +49,9 @@ void Init()
 	//------------------------------------------------------------------------
 	padInfo = ControllerInfo();
 #pragma endregion
+	gameloop = new GameLoop();
+	gameloop->Init();
 
-	//primshape = new Triangle({500,400}, 100);
-	//sq = new Square({200, 300}, 30);
-	penta = new Pentagon();
-	player = new Player();
-	box = new BoundingBox((PrimitiveShape*)penta);
 }
 
 //------------------------------------------------------------------------
@@ -153,11 +143,8 @@ void Update(float deltaTime)
 	}
 #pragma endregion
 
-	/*Position ex = {};
-	App::GetMousePos(ex.x, ex.y);*/
-	//Position ex = primshape->GetCenter();
-	//primshape->SetCenter({ex.x+0.1f, ex.y});
-	player->Update();
+	gameloop->Update();
+
 }
 
 //------------------------------------------------------------------------
@@ -166,9 +153,8 @@ void Update(float deltaTime)
 //------------------------------------------------------------------------
 void Render()
 {	
-	RenderableItems::RenderAll();
-	box->RenderDebug();
-	//primshape->Render();
+#pragma region ExampleCode
+
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	testSprite->Draw();
@@ -198,6 +184,10 @@ void Render()
 		b = (float)i / 20.0f;
 		App::DrawLine(sx, sy, ex, ey,r,g,b);
 	}
+#pragma endregion
+
+	gameloop->Render();
+	
 }
 //------------------------------------------------------------------------
 // Add your shutdown code here. Called when the APP_QUIT_KEY is pressed.
@@ -209,7 +199,5 @@ void Shutdown()
 	// Example Sprite Code....
 	delete testSprite;
 	//------------------------------------------------------------------------
-	//delete sq;
-	//delete primshape;
-	delete player;
+	gameloop->Shutdown();
 }
