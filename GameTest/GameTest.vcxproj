@@ -192,6 +192,7 @@
     <ClInclude Include="BomberClone\DrawUtils.h" />
     <ClInclude Include="BomberClone\GameLoop.h" />
     <ClInclude Include="BomberClone\Player.h" />
+    <ClInclude Include="BomberClone\PlayerControlsLink.h" />
     <ClInclude Include="BomberClone\PrimitiveShape.h" />
     <ClInclude Include="BomberClone\Pentagon.h" />
     <ClInclude Include="BomberClone\RenderableItems.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
     <ClCompile Include="BomberClone\GameLoop.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />
+    <ClCompile Include="BomberClone\PlayerControlsLink.cpp" />
     <ClCompile Include="BomberClone\PrimitiveShape.cpp" />
     <ClCompile Include="BomberClone\Pentagon.cpp" />
     <ClCompile Include="BomberClone\RenderableItems.cpp" />

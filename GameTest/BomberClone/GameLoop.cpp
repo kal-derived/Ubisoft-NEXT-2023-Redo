@@ -6,6 +6,8 @@ Square* sq;
 Player* player;
 Pentagon* penta;
 BoundingBox* box;
+ControllerInfo padInfo;
+PlayerControlsLink mechanicsLoop;
 
 GameLoop::GameLoop()
 {
@@ -22,6 +24,8 @@ void GameLoop::Init()
 	penta = new Pentagon({ 600, 300 }, 30.0f);
 	player = new Player();
 	box = new BoundingBox((PrimitiveShape*)penta);
+	padInfo = ControllerInfo();
+	player->GetBody()->renderMode = false;
 }
 
 void GameLoop::Update()
@@ -30,14 +34,19 @@ void GameLoop::Update()
 	App::GetMousePos(ex.x, ex.y);*/
 	//Position ex = primshape->GetCenter();
 	//primshape->SetCenter({ex.x+0.1f, ex.y});
-
+	padInfo.Update(App::GetController());
 	player->Update();
-	player->GetBody()->renderMode = false;
+	mechanicsLoop.Update(player, &padInfo);
+
 	bool touch = Collision::isTouching(player->GetCollider(), box);
 	if (touch)
 	{
 		penta->SetColor(1, 1, 1);
+		Collision::ResolveCollision(player->GetCollider(), box);
+		player->SetPosition(player->GetCollider()->center);
 	}
+
+
 }
 
 void GameLoop::Render()

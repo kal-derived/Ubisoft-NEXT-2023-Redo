@@ -6,6 +6,7 @@
 #include "BomberClone\Player.h"
 #include "BomberClone/BoundingBox.h"
 #include "BomberClone/Collision.h"
+#include "BomberClone/PlayerControlsLink.h"
 
 class GameLoop {
 
@@ -17,4 +18,5 @@ public:
 	void Update();
 	void Render();
 	void Shutdown();
+
 };

@@ -16,7 +16,7 @@
 //------------------------------------------------------------------------
 CSimpleSprite *testSprite;
 // ===== This is *my* example data =====
-ControllerInfo padInfo;
+
 GameLoop* gameloop;
 
 
@@ -47,8 +47,8 @@ void Init()
 	testSprite->CreateAnimation(ANIM_FORWARDS, speed, { 24,25,26,27,28,29,30,31 });
 	testSprite->SetScale(1.0f);
 	//------------------------------------------------------------------------
-	padInfo = ControllerInfo();
 #pragma endregion
+	
 	gameloop = new GameLoop();
 	gameloop->Init();
 
@@ -61,14 +61,14 @@ void Init()
 void Update(float deltaTime)
 {
 #pragma region ExampleCode
-	padInfo.Update(App::GetController());
+	
 
 	//------------------------------------------------------------------------
 	// Example Sprite Code....
 	testSprite->Update(deltaTime);
 
-	//if (App::GetController().GetLeftThumbStickX() > 0.5f)
-	if(padInfo.isLStickRight())
+	if (App::GetController().GetLeftThumbStickX() > 0.5f)
+	
 	{
 		testSprite->SetAnimation(ANIM_RIGHT);
 		float x, y;
@@ -76,8 +76,7 @@ void Update(float deltaTime)
 		x += 1.0f;
 		testSprite->SetPosition(x, y);
 	}
-	//if (App::GetController().GetLeftThumbStickX() < -0.5f)
-	if(padInfo.isLStickLeft())
+	if (App::GetController().GetLeftThumbStickX() < -0.5f)
 	{
 		testSprite->SetAnimation(ANIM_LEFT);
 		float x, y;
@@ -85,8 +84,7 @@ void Update(float deltaTime)
 		x -= 1.0f;
 		testSprite->SetPosition(x, y);
 	}
-	//if (App::GetController().GetLeftThumbStickY() > 0.5f)
-	if(padInfo.isLStickUp())
+	if (App::GetController().GetLeftThumbStickY() > 0.5f)
 	{
 		testSprite->SetAnimation(ANIM_FORWARDS);
 		float x, y;
@@ -94,8 +92,7 @@ void Update(float deltaTime)
 		y += 1.0f;
 		testSprite->SetPosition(x, y);
 	}
-	//if (App::GetController().GetLeftThumbStickY() < -0.5f)
-	if(padInfo.isLStickDown())
+	if (App::GetController().GetLeftThumbStickY() < -0.5f)
 	{
 		testSprite->SetAnimation(ANIM_BACKWARDS);
 		float x, y;
@@ -106,38 +103,32 @@ void Update(float deltaTime)
 	//OutputDebugString(std::to_wstring(padInfo.isDpadDown(padInfo.padUp)).append(L" eugh\n").c_str());
 	//OutputDebugString(std::to_wstring(App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, true)).append(L" eugh\n").c_str());
 
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
-	if (padInfo.isButtonHeld(padInfo.dpadUp))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_UP, false))
 	{
 		OutputDebugString(L"Up on pad hit!\n");
 		testSprite->SetScale(testSprite->GetScale() + 0.1f);
 	}
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_DOWN, false))
-	if(padInfo.isButtonHeld(padInfo.dpadDown))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_DOWN, false))
 	{
 		//OutputDebugString(L"IKJJ");
 		testSprite->SetScale(testSprite->GetScale() - 0.1f);
 	}
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_LEFT, false))
-	if(padInfo.isButtonHeld(padInfo.dpadLeft))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_LEFT, false))
 	{
 		testSprite->SetAngle(testSprite->GetAngle() + 0.1f);
 	}
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_RIGHT, false))
-	if(padInfo.isButtonHeld(padInfo.dpadRight))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_DPAD_RIGHT, false))
 	{
 		testSprite->SetAngle(testSprite->GetAngle() - 0.1f);
 	}
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
-	if(padInfo.isButtonJustPressed(padInfo.buttonSouth))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_A, true))
 	{
 		testSprite->SetAnimation(-1);
 	}
 	//------------------------------------------------------------------------
 	// Sample Sound.
 	//------------------------------------------------------------------------
-	//if (App::GetController().CheckButton(XINPUT_GAMEPAD_B, true))
-	if(padInfo.isButtonJustPressed(padInfo.buttonEast))
+	if (App::GetController().CheckButton(XINPUT_GAMEPAD_B, true))
 	{
 		App::PlaySound(".\\TestData\\Test.wav");
 	}
