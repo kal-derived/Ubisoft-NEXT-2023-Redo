@@ -30,7 +30,7 @@ public:
 private:
 	//void Move();
 
-	float moveSpeed = 4;
+	float moveSpeed = 8;
 	Position playerPosition;
 	Position direction;
 	Square* playerBody;

@@ -3,6 +3,7 @@
 
 BoundingBox::BoundingBox() 
 {
+	shape = new PrimitiveShape();
 	center = { APP_INIT_WINDOW_WIDTH / 2, APP_INIT_WINDOW_HEIGHT / 2 };
 	extents = {60, 60};
 }

@@ -189,6 +189,7 @@
     <ClInclude Include="BomberClone\BoundingBox.h" />
     <ClInclude Include="BomberClone\Collision.h" />
     <ClInclude Include="BomberClone\ControllerInfo.h" />
+    <ClInclude Include="BomberClone\Debug.h" />
     <ClInclude Include="BomberClone\DrawUtils.h" />
     <ClInclude Include="BomberClone\GameLoop.h" />
     <ClInclude Include="BomberClone\Player.h" />
@@ -198,6 +199,7 @@
     <ClInclude Include="BomberClone\RenderableItems.h" />
     <ClInclude Include="BomberClone\Square.h" />
     <ClInclude Include="BomberClone\Triangle.h" />
+    <ClInclude Include="BomberClone\WorldCollisionHandler.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -211,6 +213,7 @@
     <ClCompile Include="BomberClone\BoundingBox.cpp" />
     <ClCompile Include="BomberClone\Collision.cpp" />
     <ClCompile Include="BomberClone\ControllerInfo.cpp" />
+    <ClCompile Include="BomberClone\Debug.cpp" />
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
     <ClCompile Include="BomberClone\GameLoop.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />
@@ -220,6 +223,7 @@
     <ClCompile Include="BomberClone\RenderableItems.cpp" />
     <ClCompile Include="BomberClone\Square.cpp" />
     <ClCompile Include="BomberClone\Triangle.cpp" />
+    <ClCompile Include="BomberClone\WorldCollisionHandler.cpp" />
     <ClCompile Include="GameTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

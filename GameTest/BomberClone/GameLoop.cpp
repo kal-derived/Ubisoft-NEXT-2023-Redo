@@ -8,6 +8,8 @@ Pentagon* penta;
 BoundingBox* box;
 ControllerInfo padInfo;
 PlayerControlsLink mechanicsLoop;
+WorldCollisionHandler* physicsLoop;
+
 
 GameLoop::GameLoop()
 {
@@ -25,7 +27,13 @@ void GameLoop::Init()
 	player = new Player();
 	box = new BoundingBox((PrimitiveShape*)penta);
 	padInfo = ControllerInfo();
-	player->GetBody()->renderMode = false;
+	//player->GetBody()->renderMode = false;
+	physicsLoop = new WorldCollisionHandler(player);
+	physicsLoop->AddCollider(box);
+	for (size_t i = 0; i < Debug::testColliders.size(); i++)
+	{
+		physicsLoop->AddCollider(Debug::testColliders[i]);
+	}
 }
 
 void GameLoop::Update()
@@ -35,16 +43,17 @@ void GameLoop::Update()
 	//Position ex = primshape->GetCenter();
 	//primshape->SetCenter({ex.x+0.1f, ex.y});
 	padInfo.Update(App::GetController());
-	player->Update();
+	//player->Update();
+	physicsLoop->Update();
 	mechanicsLoop.Update(player, &padInfo);
 
-	bool touch = Collision::isTouching(player->GetCollider(), box);
-	if (touch)
-	{
-		penta->SetColor(1, 1, 1);
-		Collision::ResolveCollision(player->GetCollider(), box);
-		player->SetPosition(player->GetCollider()->center);
-	}
+	//bool touch = Collision::isTouching(player->GetCollider(), box);
+	//if (touch)
+	//{
+	//	penta->SetColor(1, 1, 1);
+	//	Collision::ResolveCollision(player->GetCollider(), box);
+	//	player->SetPosition(player->GetCollider()->center);
+	//}
 
 
 }
@@ -54,7 +63,11 @@ void GameLoop::Render()
 	RenderableItems::RenderAll();
 	//primshape->Render();
 	box->RenderDebug();
-	player->GetCollider()->RenderDebug();
+	//player->GetCollider()->RenderDebug();
+	for (size_t i = 0; i < Debug::testColliders.size(); i++)
+	{
+		Debug::testColliders[i]->RenderDebug();
+	}
 }
 
 void GameLoop::Shutdown()

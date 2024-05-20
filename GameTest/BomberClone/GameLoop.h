@@ -7,6 +7,8 @@
 #include "BomberClone/BoundingBox.h"
 #include "BomberClone/Collision.h"
 #include "BomberClone/PlayerControlsLink.h"
+#include "BomberClone/WorldCollisionHandler.h"
+#include "BomberClone/Debug.h"
 
 class GameLoop {
 
