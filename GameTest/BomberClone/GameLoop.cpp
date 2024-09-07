@@ -25,7 +25,7 @@ void GameLoop::Init()
 	//sq = new Square({200, 300}, 30);
 	penta = new Pentagon({ 600, 300 }, 30.0f);
 	player = new Player();
-	box = new BoundingBox((PrimitiveShape*)penta);
+	box = new BoundingBox(penta);
 	padInfo = ControllerInfo();
 	//player->GetBody()->renderMode = false;
 	physicsLoop = new WorldCollisionHandler(player);

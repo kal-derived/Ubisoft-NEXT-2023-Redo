@@ -55,7 +55,7 @@ Position Player::GetDirection()
 void Player::UpdatePosition(/*Position newPosition*/)
 {
 	//playerPosition = newPosition;
-	playerBody->SetCenter(playerPosition);
+	//playerBody->SetCenter(playerPosition);
 	collider->SetPosition(playerPosition);
 }
 

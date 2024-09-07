@@ -104,6 +104,7 @@ Vertex* BoundingBox::FindFurthestVertInDirection(bool isVert, bool isGreaterThan
 void BoundingBox::SetPosition(Position newPosition)
 {
 	center = newPosition;
+	shape->SetCenter(newPosition);
 }
 
 void BoundingBox::RenderDebug()
