@@ -9,6 +9,7 @@
 #include "BomberClone/PlayerControlsLink.h"
 #include "BomberClone/WorldCollisionHandler.h"
 #include "BomberClone/Debug.h"
+#include "BomberClone/MapGenerator.h"
 
 class GameLoop {
 

@@ -10,6 +10,7 @@ ControllerInfo padInfo;
 PlayerControlsLink mechanicsLoop;
 WorldCollisionHandler* physicsLoop;
 
+MapGenerator* map;
 
 GameLoop::GameLoop()
 {
@@ -30,10 +31,12 @@ void GameLoop::Init()
 	//player->GetBody()->renderMode = false;
 	physicsLoop = new WorldCollisionHandler(player);
 	physicsLoop->AddCollider(box);
-	for (size_t i = 0; i < Debug::testColliders.size(); i++)
-	{
-		physicsLoop->AddCollider(Debug::testColliders[i]);
-	}
+	//for (size_t i = 0; i < Debug::testColliders.size(); i++)
+	//{
+	//	physicsLoop->AddCollider(Debug::testColliders[i]);
+	//}
+
+	map = new MapGenerator();
 }
 
 void GameLoop::Update()
@@ -55,6 +58,7 @@ void GameLoop::Update()
 	//	player->SetPosition(player->GetCollider()->center);
 	//}
 
+	map->Render();
 
 }
 
@@ -64,10 +68,10 @@ void GameLoop::Render()
 	//primshape->Render();
 	box->RenderDebug();
 	//player->GetCollider()->RenderDebug();
-	for (size_t i = 0; i < Debug::testColliders.size(); i++)
-	{
-		Debug::testColliders[i]->RenderDebug();
-	}
+	//for (size_t i = 0; i < Debug::testColliders.size(); i++) // Render debug squares collision
+	//{
+	//	Debug::testColliders[i]->RenderDebug();
+	//}
 }
 
 void GameLoop::Shutdown()
