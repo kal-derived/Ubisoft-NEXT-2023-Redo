@@ -1,6 +1,6 @@
 #pragma once
 #include "Square.h"
-#include "BoundingBox.h"
+#include "MapTile.h"
 
 class MapGenerator {
 
@@ -12,6 +12,6 @@ public:
 private:
 	int cols = 3;
 	int rows = 4;
-	std::vector<BoundingBox*> tiles;
+	std::vector<MapTile*> tiles;
 
 };

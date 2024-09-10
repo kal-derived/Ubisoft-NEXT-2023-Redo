@@ -13,7 +13,7 @@ MapGenerator::MapGenerator() {
 			float yPos = APP_INIT_WINDOW_HEIGHT / 2 + (i * (squareRadius * 2)) - ((squareRadius * 2) * floor(float(rows) / 2));
 			yPos += rows % 2 == 0 ? squareRadius : 0;
 
-			tiles.push_back(new BoundingBox(new Square({xPos, yPos}, squareRadius)));
+			tiles.push_back(new MapTile({xPos, yPos},new BoundingBox(new Square({ xPos, yPos }, squareRadius))));
 		}
 	}
 }
@@ -26,6 +26,6 @@ void MapGenerator::Render()
 {
 	for (size_t i = 0; i < tiles.size(); i++)
 	{
-		tiles[i]->RenderDebug();
+		tiles[i]->GetCollider()->RenderDebug();
 	}
 }

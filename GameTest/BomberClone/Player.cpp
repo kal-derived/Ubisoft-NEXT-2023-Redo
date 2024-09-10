@@ -3,7 +3,7 @@
 
 Player::Player()
 {
-	playerPosition = { APP_INIT_WINDOW_WIDTH / 2, APP_INIT_WINDOW_HEIGHT / 2 };
+	playerPosition = { APP_INIT_WINDOW_WIDTH / 3, APP_INIT_WINDOW_HEIGHT / 2 };
 	playerBody = new Square({ playerPosition.x, playerPosition.y }, 20);
 	collider = new BoundingBox(playerBody);
 	direction = { 0,0 };

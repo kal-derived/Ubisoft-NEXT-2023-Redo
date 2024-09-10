@@ -193,6 +193,7 @@
     <ClInclude Include="BomberClone\DrawUtils.h" />
     <ClInclude Include="BomberClone\GameLoop.h" />
     <ClInclude Include="BomberClone\MapGenerator.h" />
+    <ClInclude Include="BomberClone\MapTile.h" />
     <ClInclude Include="BomberClone\Player.h" />
     <ClInclude Include="BomberClone\PlayerControlsLink.h" />
     <ClInclude Include="BomberClone\PrimitiveShape.h" />
@@ -218,6 +219,7 @@
     <ClCompile Include="BomberClone\DrawUtils.cpp" />
     <ClCompile Include="BomberClone\GameLoop.cpp" />
     <ClCompile Include="BomberClone\MapGenerator.cpp" />
+    <ClCompile Include="BomberClone\MapTile.cpp" />
     <ClCompile Include="BomberClone\Player.cpp" />
     <ClCompile Include="BomberClone\PlayerControlsLink.cpp" />
     <ClCompile Include="BomberClone\PrimitiveShape.cpp" />
