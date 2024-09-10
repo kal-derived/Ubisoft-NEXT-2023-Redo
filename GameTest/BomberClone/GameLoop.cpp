@@ -72,6 +72,8 @@ void GameLoop::Render()
 	//{
 	//	Debug::testColliders[i]->RenderDebug();
 	//}
+
+	map->Render();
 }
 
 void GameLoop::Shutdown()

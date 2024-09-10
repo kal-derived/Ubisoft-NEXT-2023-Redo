@@ -23,6 +23,16 @@ BoundingBox* MapTile::GetCollider()
 	return collider;
 }
 
+int MapTile::GetType()
+{
+	return type;
+}
+
+void MapTile::SetType(tileType i)
+{
+	type = i;
+}
+
 bool MapTile::HasDrop()
 {
 	return hasDrop;

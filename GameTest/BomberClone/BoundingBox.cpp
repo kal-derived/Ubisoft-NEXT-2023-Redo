@@ -119,3 +119,8 @@ void BoundingBox::RenderDebug()
 	App::DrawLine(rightDown.x, rightDown.y, leftDown.x, leftDown.y, 0.3, 0.3, 1);
 	App::DrawLine(leftDown.x, leftDown.y, leftUp.x, leftUp.y , 0.3, 0.3, 1);
 }
+
+PrimitiveShape* BoundingBox::GetShape()
+{
+	return shape;
+}

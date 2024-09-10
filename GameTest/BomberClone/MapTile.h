@@ -18,6 +18,8 @@ public:
 
 	Position GetCenter();
 	BoundingBox* GetCollider();
+	int GetType();
+	void SetType(tileType i);
 	bool HasDrop();
 
 private:

@@ -9,6 +9,10 @@ public:
 	~MapGenerator();
 
 	void Render();
+	void InitTile(MapTile* t);
+	void InitTiles();
+	void DisableTileCollision(MapTile* t);
+
 private:
 	int cols = 3;
 	int rows = 4;

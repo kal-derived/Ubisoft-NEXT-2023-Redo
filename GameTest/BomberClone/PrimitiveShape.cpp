@@ -99,6 +99,11 @@ void PrimitiveShape::SetColor(float r, float g, float b)
 	color.b = b;
 }
 
+void PrimitiveShape::SetRenderMode(bool mode)
+{
+	renderMode = mode;
+}
+
 
 void PrimitiveShape::UpdateVertPositions(Position newPosition)
 {

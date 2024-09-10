@@ -16,6 +16,7 @@ public:
 
 	void SetPosition(Position newPosition);
 	void RenderDebug();
+	PrimitiveShape* GetShape();
 	Position center;
 	Position extents;
 

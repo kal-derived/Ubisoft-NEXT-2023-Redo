@@ -10,13 +10,12 @@ public:
 	PrimitiveShape(float x, float y);
 	~PrimitiveShape();
 
-	bool renderMode = true;
-
 	void Render();
 	void SetCenter(Position newPosition);
 	Position GetCenter();
 	std::vector<Vertex*> GetVerts();
 	void SetColor(float r, float g, float b);
+	void SetRenderMode(bool mode);
 
 protected:
 	virtual void CreateShape();
@@ -29,6 +28,6 @@ protected:
 private:
 	void PrimitiveShape::CreateDebugShape();
 	void UpdateVertPositions(Position newPosition);
-
+	bool renderMode = true;
 };
 
