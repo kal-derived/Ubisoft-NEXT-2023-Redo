@@ -3,6 +3,7 @@
 #include "Square.h"
 #include "Triangle.h"
 #include "BoundingBox.h"
+#include "MapTile.h"
 
 class Player
 {
@@ -35,6 +36,7 @@ private:
 	Position direction;
 	Square* playerBody;
 	BoundingBox* collider;
+	//MapTile* currentTile;
 
 	//ControllerInfo controlRef;
 };

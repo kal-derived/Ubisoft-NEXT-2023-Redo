@@ -29,14 +29,21 @@ void GameLoop::Init()
 	box = new BoundingBox(penta);
 	padInfo = ControllerInfo();
 	//player->GetBody()->renderMode = false;
-	physicsLoop = new WorldCollisionHandler(player);
+
+	map = new MapGenerator();
+
+	for each (MapTile* t in map->GetTiles())
+	{
+		WorldCollisionHandler::AddCollider(t->GetCollider());
+	}
+
+	physicsLoop = new WorldCollisionHandler(player, map);
 	physicsLoop->AddCollider(box);
 	//for (size_t i = 0; i < Debug::testColliders.size(); i++)
 	//{
 	//	physicsLoop->AddCollider(Debug::testColliders[i]);
 	//}
 
-	map = new MapGenerator();
 }
 
 void GameLoop::Update()
@@ -64,6 +71,8 @@ void GameLoop::Update()
 
 void GameLoop::Render()
 {
+	map->Render();
+
 	RenderableItems::RenderAll();
 	//primshape->Render();
 	box->RenderDebug();
@@ -73,7 +82,6 @@ void GameLoop::Render()
 	//	Debug::testColliders[i]->RenderDebug();
 	//}
 
-	map->Render();
 }
 
 void GameLoop::Shutdown()

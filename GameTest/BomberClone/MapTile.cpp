@@ -5,8 +5,6 @@ MapTile::MapTile(Position p, BoundingBox* box)
 {
 	center = p;
 	collider = box;
-
-	WorldCollisionHandler::AddCollider(collider);
 }
 
 MapTile::~MapTile()

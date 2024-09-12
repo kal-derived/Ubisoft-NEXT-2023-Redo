@@ -1,10 +1,10 @@
 #pragma once
 #include "DrawUtils.h"
-#include "WorldCollisionHandler.h"
+#include "BoundingBox.h"
 
 class MapTile {
 public:
-	MapTile(Position p, BoundingBox*);
+	MapTile(Position p, BoundingBox* box);
 	~MapTile();
 
 	enum tileType {

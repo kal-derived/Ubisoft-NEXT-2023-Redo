@@ -2,7 +2,7 @@
 #include "MapGenerator.h"
 
 MapGenerator::MapGenerator() {
-	int squareRadius = 20;
+	
 	for (size_t i = 0; i < rows; i++)
 	{
 		for (size_t j = 0; j < cols; j++)
@@ -15,9 +15,17 @@ MapGenerator::MapGenerator() {
 
 			MapTile* newTile = new MapTile({ xPos, yPos }, new BoundingBox(new Square({ xPos, yPos }, squareRadius)));
 
-			if ((i == 0 || j == 0) || (i == rows-1 || j == cols-1))
+			if ((i == 0 || j == 0) || (i == rows-1 || j == cols-1)) // Set square boundary of the map to impervious blocks
 			{
 				newTile->SetType(MapTile::BOUNDARY);
+			}
+
+			else if ((i > 0 && i < rows - 1) && (j > 0 && j < cols - 1)) //Set an impervious grid of "pegs" inside the play space
+			{
+				if (i % 2 == 0 && j % 2 == 0) // Only set the even tiles as pegs
+				{
+					newTile->SetType(MapTile::BOUNDARY);
+				}
 			}
 
 			InitTile(newTile);
@@ -49,6 +57,7 @@ void MapGenerator::InitTile(MapTile* t)
 	{
 		t->GetCollider()->GetShape()->SetRenderMode(false);
 	}
+
 }
 
 void MapGenerator::InitTiles()
@@ -58,3 +67,23 @@ void MapGenerator::InitTiles()
 		InitTile(tiles[i]);
 	}
 }
+
+MapTile* MapGenerator::FindTile(BoundingBox* b)
+{
+	for each (MapTile* tile in tiles)
+	{
+		if (tile->GetCollider() == b)
+		{
+			return tile;
+		}
+	}
+
+	return nullptr;
+}
+
+std::vector<MapTile*> MapGenerator::GetTiles()
+{
+	return tiles;
+}
+
+

@@ -1,10 +1,11 @@
 #pragma once
 #include "Collision.h"
 #include "Player.h"
+#include "MapGenerator.h"
 
 class WorldCollisionHandler {
 public:
-	WorldCollisionHandler(Player* p);
+	WorldCollisionHandler(Player* p,MapGenerator* m);
 	~WorldCollisionHandler();
 
 	//void Init(std::vector<BoundingBox*> boxes);
@@ -17,4 +18,5 @@ private:
 	void CheckWorldCollisions();
 	static std::vector<BoundingBox*> colliders;
 	Player* player;
+	MapGenerator* map;
 };

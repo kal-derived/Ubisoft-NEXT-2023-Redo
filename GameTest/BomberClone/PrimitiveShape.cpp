@@ -64,7 +64,8 @@ void PrimitiveShape::Render()
 				App::DrawLine(start.x, start.y, end.x, end.y, color.r, color.g, color.b);
 				if (i == vertices.size() - 1)
 				{
-					App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, 0, 1, 0);
+					//App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, 0, 1, 0); // Debug for seeing the last edge of the shape as green
+					App::DrawLine(end.x, end.y, vertices[0]->vertPos.x, vertices[0]->vertPos.y, color.r, color.g, color.b);
 				}
 				else {
 					start = vertices[i]->vertPos;

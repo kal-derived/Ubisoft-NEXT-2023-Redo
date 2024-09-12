@@ -11,11 +11,14 @@ public:
 	void Render();
 	void InitTile(MapTile* t);
 	void InitTiles();
+	MapTile* FindTile(BoundingBox* b);
 	void DisableTileCollision(MapTile* t);
 
-private:
-	int cols = 3;
-	int rows = 4;
-	std::vector<MapTile*> tiles;
+	std::vector<MapTile*> GetTiles();
 
+private:
+	int cols = 7;
+	int rows = 7;
+	std::vector<MapTile*> tiles;
+	int squareRadius = 40;
 };
