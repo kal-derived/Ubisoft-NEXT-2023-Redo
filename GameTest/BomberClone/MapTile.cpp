@@ -31,7 +31,22 @@ void MapTile::SetType(tileType i)
 	type = i;
 }
 
+void MapTile::SetDrop(bool d)
+{
+	hasDrop = d;
+}
+
 bool MapTile::HasDrop()
 {
 	return hasDrop;
+}
+
+bool MapTile::IsExit()
+{
+	return isExit;
+}
+
+void MapTile::SetExit(bool e)
+{
+	isExit = e;
 }

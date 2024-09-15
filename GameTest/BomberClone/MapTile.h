@@ -20,10 +20,14 @@ public:
 	BoundingBox* GetCollider();
 	int GetType();
 	void SetType(tileType i);
+	void SetDrop(bool d);
 	bool HasDrop();
+	bool IsExit();
+	void SetExit(bool e);
 
 private:
 	bool hasDrop = false;
+	bool isExit = false;
 	Position center;
 	BoundingBox* collider;
 	int type = tileType::EMPTY;

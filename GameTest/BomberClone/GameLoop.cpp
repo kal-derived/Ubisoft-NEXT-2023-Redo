@@ -65,13 +65,12 @@ void GameLoop::Update()
 	//	player->SetPosition(player->GetCollider()->center);
 	//}
 
-	map->Render();
+	
 
 }
 
 void GameLoop::Render()
 {
-	map->Render();
 
 	RenderableItems::RenderAll();
 	//primshape->Render();
@@ -81,6 +80,7 @@ void GameLoop::Render()
 	//{
 	//	Debug::testColliders[i]->RenderDebug();
 	//}
+	map->Render();
 
 }
 
