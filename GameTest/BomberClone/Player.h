@@ -27,7 +27,7 @@ public:
 	Position GetPosition();
 	float GetSpeed();
 	Position GetDirection();
-
+	void SetCurrentTile(MapTile* t);
 private:
 	//void Move();
 
@@ -36,7 +36,7 @@ private:
 	Position direction;
 	Square* playerBody;
 	BoundingBox* collider;
-	//MapTile* currentTile;
+	MapTile* currentTile;
 
 	//ControllerInfo controlRef;
 };

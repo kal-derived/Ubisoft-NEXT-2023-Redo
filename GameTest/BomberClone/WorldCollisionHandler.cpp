@@ -28,6 +28,7 @@ void WorldCollisionHandler::CheckWorldCollisions()
 		{
 			MapTile* currentTile = map->FindTile(colliders[i]);
 
+			//We're dealing with a non-map tile object
 			if (currentTile == nullptr)
 			{
 				//std::cout << "hey!";
@@ -36,13 +37,32 @@ void WorldCollisionHandler::CheckWorldCollisions()
 				playerCollider = player->GetCollider();
 				player->SetPosition(playerCollider->center);
 			}
-			else
+			
+			//If we're dealing with a map tile...
+			else 
 			{
-				if (currentTile->GetCollider() == colliders[i] && currentTile->GetType() != MapTile::EMPTY) {
-					Collision::ResolveCollision(player->GetCollider(), colliders[i]);
-					playerCollider = player->GetCollider();
-					player->SetPosition(playerCollider->center);
+				//Check if the map tile has the collider we're checking
+				if (currentTile->GetCollider() == colliders[i]) {
+
+					//Solid tile collision
+					if (currentTile->GetType() != MapTile::EMPTY)
+					{
+						Collision::ResolveCollision(player->GetCollider(), colliders[i]);
+						playerCollider = player->GetCollider();
+						player->SetPosition(playerCollider->center);
+					}
+
+					//Non-solid tile handling
+					else
+					{
+						//Update the tile the player is "currently standing on" if their center is within the tile's BB
+						if (currentTile->GetCollider()->ContainsPoint(player->GetPosition()))
+						{
+							player->SetCurrentTile(currentTile);
+						}
+					}
 				}
+
 			}
 			//player->GetBody()->SetColor(1, 1, 1);
 		}

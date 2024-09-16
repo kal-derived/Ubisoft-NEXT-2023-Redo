@@ -20,6 +20,7 @@ public:
 	Position center;
 	Position extents;
 
+	bool ContainsPoint(Position p);
 private:
 	void CreateBox();
 	Vertex* GetFurthestVert(Axis a);

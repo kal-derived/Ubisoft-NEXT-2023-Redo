@@ -52,6 +52,11 @@ Position Player::GetDirection()
 	return direction;
 }
 
+void Player::SetCurrentTile(MapTile* t)
+{
+	currentTile = t;
+}
+
 void Player::UpdatePosition(/*Position newPosition*/)
 {
 	//playerPosition = newPosition;
@@ -85,7 +90,7 @@ void Player::UpdatePosition(/*Position newPosition*/)
 
 void Player::Action1()
 {
-	Triangle* t = new Triangle(playerPosition, 20);
+	Triangle* t = new Triangle(currentTile->GetCenter(), 20);
 }
 
 void Player::Action2()

@@ -20,7 +20,21 @@ BoundingBox::~BoundingBox()
 {
 }
 
-void BoundingBox::CreateBox() 
+bool BoundingBox::ContainsPoint(Position p)
+{
+	//Check horizontal bounds
+	if (p.x <= center.x + extents.x && p.x >= center.x - extents.x)
+	{
+		//Check vertical bounds
+		if (p.y <= center.y + extents.y && p.y >= center.y -extents.y)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+void BoundingBox::CreateBox()
 {
 
 }
