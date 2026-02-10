@@ -1,9 +1,10 @@
 #pragma once
-#include "ControllerInfo.h"
+//#include "ControllerInfo.h"
 #include "Square.h"
-#include "Triangle.h"
+//#include "Triangle.h"
+#include "Bomb.h"
 #include "BoundingBox.h"
-#include "MapTile.h"
+//#include "MapTile.h"
 
 class Player
 {
@@ -27,7 +28,7 @@ public:
 	Position GetPosition();
 	float GetSpeed();
 	Position GetDirection();
-	void SetCurrentTile(MapTile* t);
+	void SetCurrentTile(MapTile* t); 
 private:
 	//void Move();
 
@@ -37,6 +38,7 @@ private:
 	Square* playerBody;
 	BoundingBox* collider;
 	MapTile* currentTile;
+	Bomb* bomb1;
 
 	//ControllerInfo controlRef;
 };

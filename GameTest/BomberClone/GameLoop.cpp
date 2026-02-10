@@ -32,6 +32,7 @@ void GameLoop::Init()
 
 	map = new MapGenerator();
 
+
 	for each (MapTile* t in map->GetTiles())
 	{
 		WorldCollisionHandler::AddCollider(t->GetCollider());
@@ -53,10 +54,10 @@ void GameLoop::Update()
 	//Position ex = primshape->GetCenter();
 	//primshape->SetCenter({ex.x+0.1f, ex.y});
 	padInfo.Update(App::GetController());
-	//player->Update();
+	player->Update();
 	physicsLoop->Update();
 	mechanicsLoop.Update(player, &padInfo);
-
+	map->Update();
 	//bool touch = Collision::isTouching(player->GetCollider(), box);
 	//if (touch)
 	//{

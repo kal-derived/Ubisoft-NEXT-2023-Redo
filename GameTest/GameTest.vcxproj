@@ -186,6 +186,7 @@
     <ClInclude Include="App\SimpleSound.h" />
     <ClInclude Include="App\SimpleSprite.h" />
     <ClInclude Include="App\TextureLoader.h" />
+    <ClInclude Include="BomberClone\Bomb.h" />
     <ClInclude Include="BomberClone\BoundingBox.h" />
     <ClInclude Include="BomberClone\Collision.h" />
     <ClInclude Include="BomberClone\ControllerInfo.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="App\SimpleSound.cpp" />
     <ClCompile Include="App\SimpleSprite.cpp" />
     <ClCompile Include="App\TextureLoader.cpp" />
+    <ClCompile Include="BomberClone\Bomb.cpp" />
     <ClCompile Include="BomberClone\BoundingBox.cpp" />
     <ClCompile Include="BomberClone\Collision.cpp" />
     <ClCompile Include="BomberClone\ControllerInfo.cpp" />

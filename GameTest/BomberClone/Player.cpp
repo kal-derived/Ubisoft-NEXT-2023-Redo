@@ -7,6 +7,7 @@ Player::Player()
 	playerBody = new Square({ playerPosition.x, playerPosition.y }, 20);
 	collider = new BoundingBox(playerBody);
 	direction = { 0,0 };
+	bomb1 = new Bomb();
 }
 
 Player::~Player()
@@ -20,6 +21,10 @@ void Player::Update()
 	//controlRef.Update(App::GetController());
 	//Move();
 	//Action1();
+	if (bomb1->IsActive())
+	{
+		bomb1->Update();
+	}
 }
 
 void Player::SetPosition(Position p)
@@ -90,7 +95,18 @@ void Player::UpdatePosition(/*Position newPosition*/)
 
 void Player::Action1()
 {
-	Triangle* t = new Triangle(currentTile->GetCenter(), 20);
+	//Triangle* t = new Triangle(currentTile->GetCenter(), 20);
+	currentTile->SetExploding(true);
+	//if (currentTile->GetTimestamp() + currentTile->GetExplosionDelayAmount() <= time(nullptr))
+	//{
+	//	//NOT GONNA WORK - WILL ONLY UPDATE TRIANGLE WHEN BUTTON PRESSED. PROBABLY NEED A BOMB OBJ/CLASS
+	//	OutputDebugString(L"bomb despawned");
+	//}
+	if (bomb1->IsActive() == false)
+	{
+		bomb1->ActivateBomb(currentTile);
+	}
+	
 }
 
 void Player::Action2()

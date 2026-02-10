@@ -43,6 +43,7 @@ MapGenerator::~MapGenerator() {
 
 void MapGenerator::Render()
 {
+	//App::Print(200, 100, std::to_string(time(nullptr)).c_str());
 	for (size_t i = 0; i < tiles.size(); i++)
 	{
 		if (tiles[i]->GetType() == MapTile::EMPTY)
@@ -71,6 +72,18 @@ void MapGenerator::Render()
 				break;
 		}
 	}
+}
+
+void MapGenerator::Update()
+{
+	//if (timestamp != 0) {
+	//	ExplodeTiles(4);
+	//}
+	for (size_t i = 0; i < tiles.size(); i++)
+	{
+		tiles[i]->Update();
+	}
+	
 }
 
 void MapGenerator::InitTile(MapTile* t)
@@ -153,9 +166,31 @@ void MapGenerator::RandomizeTiles(int numWalls, int numPowerups)
 	}
 }
 
+//void MapGenerator::TriggerExplosion()
+//{
+//	timestamp = time(nullptr);
+//}
+
+void MapGenerator::ExplodeTiles(/*int delay*/)
+{
+	/*if (Timer(delay, timestamp))
+	{
+		for each (MapTile * t in tiles)
+		{
+			if (t->IsExploding())
+			{
+				t->GetCollider()->GetShape()->SetRenderMode(false);
+				t->SetExploding(false);	
+			}
+		}
+	}*/
+}
+
 std::vector<MapTile*> MapGenerator::GetTiles()
 {
 	return tiles;
 }
+
+
 
 
